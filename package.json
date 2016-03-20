@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "chalk": "^1.1.1",
+    "glob": "^7.0.3",
     "mysql": "^2.10.2",
     "restify": "^4.0.4",
     "sequelize": "^3.19.3"

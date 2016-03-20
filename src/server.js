@@ -56,13 +56,17 @@ export default class Server {
     });
 
     // Start the definition of the models.
-    this._initModels();
+    return new Promise((resolve, reject) => {
+      this._initModels().then(() => {
+        // Start the prepare of middleware.
+        this._initMiddleware();
 
-    // Start the prepare of middleware.
-    this._initMiddleware();
+        // Start the route definitions.
+        this._initRoutes();
 
-    // Start the route definitions.
-    this._initRoutes();
+        return resolve(this);
+      });
+    });
   }
 
   /**
@@ -91,6 +95,14 @@ export default class Server {
       if (model.hasOwnProperty('associate') && typeof model.associate === 'function') {
         model.associate(this.sequelize.models);
       }
+    });
+
+    // Call sync! Return the promise! Catch is exit!!
+    return this.sequelize.sync().catch((err) => {
+      console.log(chalk.bold.red('Error when syncing model definitions with database:'));
+      console.error(err);
+      console.error(err.stack);
+      process.exit(1);
     });
   }
 

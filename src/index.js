@@ -8,5 +8,6 @@ import * as Config  from './../config';
 
 import Server from './server';
 
-let server = new Server(Package.version, Config)
-  .listen();
+new Server(Package.version, Config).then((server) => {
+  server.listen();
+});

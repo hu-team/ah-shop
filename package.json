@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node",
+    "start": "nodemon --watch src src/index.js --exec babel-node",
     "build": "babel src -d lib --copy-files",
     "serve": "node lib/index.js",
     "test": "mocha --compilers js:babel-register"
   },
   "dependencies": {
+    "chalk": "^1.1.1",
     "mysql": "^2.10.2",
     "restify": "^4.0.4",
     "sequelize": "^3.19.3"

@@ -398,4 +398,8 @@ node_modules
 
 
 ### App Specific
+# babel transpile
+lib/
 
+# config
+/config.js

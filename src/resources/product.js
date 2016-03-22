@@ -23,8 +23,7 @@ export default class Sample extends Resource {
 
     this.server.get('/products', function(req, res, next) {
       Product.findAll().then(function(product){
-        //var data = product.getDataValue();
-
+        
         var msg = {
           type: "data",
           data: product,

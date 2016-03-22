@@ -30,8 +30,6 @@ export default class UserRoute extends Resource {
       var lastname = req.body.lastname;
       var password = self.generatePassword();
 
-      //console.log(req.body.username);
-
       User.create({
         username: username,
         password: password

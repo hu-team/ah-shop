@@ -74,6 +74,9 @@ export default class UserRoute extends Resource {
 
           if(user != null) {
             msg.type = "isUser";
+            msg.data = [ user.get({
+              plain: true
+            })];
             self.Response(res, next, msg);
           }
 

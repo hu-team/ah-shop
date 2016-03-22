@@ -7,12 +7,12 @@
 /**
  * Define the model.
  *
- * @param [Sequelize} sequelize
+ * @param {Sequelize} sequelize
  * @param {DataTypes} DataTypes
  */
  export function define (sequelize, DataTypes) {
    sequelize.define('user', {
-     username: {type: DataTypes.STRING, unique: true},
+     username: {type: DataTypes.STRING, unique: true, allowNull: false},
      password: DataTypes.STRING
    });
  }

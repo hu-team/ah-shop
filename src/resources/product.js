@@ -10,7 +10,7 @@ import Resource from "../resource";
  * @class Sample
  * @type {Sample}
  */
-export default class Sample extends Resource {
+export default class ProductRoute extends Resource {
   constructor (server) {
     super(server);
   }
@@ -23,7 +23,7 @@ export default class Sample extends Resource {
 
     this.server.get('/products', function(req, res, next) {
       Product.findAll().then(function(product){
-        
+
         var msg = {
           type: "data",
           data: product,

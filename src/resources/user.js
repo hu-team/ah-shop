@@ -56,7 +56,31 @@ export default class UserRoute extends Resource {
           type: "ERROR",
           message: err.errors[0]['message']
         }
-        self.errResponse(res, next, msg);
+        self.ErrResponse(res, next, msg);
+      });
+    });
+
+    this.server.get('/users/:username/:password', function(req, res, next){
+      var username = req.params['username'];
+      var password = req.params['password'];
+
+      User.findOne({
+        where: {
+          username: username,
+          password: password
+        }
+      }).then(function(user){
+          var msg = {};
+
+          if(user != null) {
+            msg.type = "isUser";
+            self.Response(res, next, msg);
+          }
+
+          msg.type = "userNotFound";
+          msg.message = "Username or password is incorrect";
+
+          self.ErrResponse(res, next , msg);
       });
     });
   }
@@ -78,7 +102,7 @@ export default class UserRoute extends Resource {
     return retVal;
   }
 
-  errResponse(res, next, msg) {
+  ErrResponse(res, next, msg) {
 
     res.json(msg);
     return next();

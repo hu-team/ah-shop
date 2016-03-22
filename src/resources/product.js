@@ -36,9 +36,4 @@ export default class Sample extends Resource {
       });
     });
   }
-
-  getRoot (req, res, next) {
-    res.end('<h1>Webservice, AH - Shop!</h1>');
-    return next();
-  }
 }

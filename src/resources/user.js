@@ -25,9 +25,9 @@ export default class UserRoute extends Resource {
     var self = this;
 
     this.server.post('/users', function(req, res, next) {
-      var username = req.body.username;
-      var firstname = req.body.firstname;
-      var lastname = req.body.lastname;
+      var username = req.params.username;
+      var firstname = req.params.firstname;
+      var lastname = req.params.lastname;
       var password = self.generatePassword();
 
       User.create({

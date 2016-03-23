@@ -20,8 +20,8 @@ export default class UserRoute extends Resource {
    * Define Routes.
    */
   routes () {
-    var User = this.models.user;
     var UserInfo = this.models.user_info;
+    var User = this.models.user;
     var self = this;
 
     this.server.post('/users', function(req, res, next) {
@@ -68,7 +68,10 @@ export default class UserRoute extends Resource {
         where: {
           username: username,
           password: password
-        }
+        },
+        include: [
+          { model: UserInfo }
+        ]
       }).then(function(user){
           var msg = {};
 

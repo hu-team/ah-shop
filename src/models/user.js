@@ -23,5 +23,6 @@
   */
  export function associate (models) {
    models['user'].hasOne(models['user_info']);
+   models['user'].hasMany(models['purchased']);
    // models['Sample'].belongsTo(models['User']);
  }

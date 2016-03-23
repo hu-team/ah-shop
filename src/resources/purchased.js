@@ -86,7 +86,7 @@ export default class PurchasedRoute extends Resource {
 
         return Purchased.create({
               productId: productTable.get('id'),
-              userInfoId: user.get('id'),
+              userId: userid,
             })
       }).catch(function(err) {
         res.json({

@@ -23,6 +23,5 @@
   * @param {object} models Models Array
   */
  export function associate (models) {
-   models['user_info'].hasMany(models['purchased']);
    // models['Sample'].belongsTo(models['User']);
  }

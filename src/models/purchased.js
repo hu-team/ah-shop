@@ -12,7 +12,7 @@
  */
  export function define (sequelize, DataTypes) {
    sequelize.define('purchased', {
-     date: DataTypes.DATE
+  
    });
  }
 

@@ -95,7 +95,7 @@ export default class InventoryRoute extends Resource {
 
   Response (data, res, next) {
     var msg = {
-      type: "userInvertory",
+      type: "userInventory",
       data: data
     };
 

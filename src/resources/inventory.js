@@ -34,6 +34,11 @@ export default class InventoryRoute extends Resource {
         }
       }).then(function(items) {
 
+        //Check if item is empty
+        if(items.length == 0) {
+          return self.Response({}, res, next);
+        }
+
         //Set all items in array
         items.forEach(function(val, index){
           var id = val.get('productId');

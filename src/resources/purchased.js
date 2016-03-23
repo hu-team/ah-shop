@@ -22,42 +22,86 @@ export default class PurchasedRoute extends Resource {
     var self = this;
 
     this.server.post('/purchased', function(req, res, next){
-      var items = req.query['item'];
+      var productprice, productTable, newBalance, newAmount;
       var userid = req.body.userid;
+      var productid = req.body.productid;
       var UserInfo = self.models.user_info;
       var Product = self.models.product;
-      var msg = {};
+      var Purchased = self.models.purchased;
 
-      var User = UserInfo.findOne({
+      var Products = Product.findOne({
         where: {
-          userId: userid
+          id: productid
         }
-      }).then(function(user) {
-        return user.get({
-          plain: true
-        });
-      }).then(function(user) {
-        var balance = user.balance;
-        var total = 0;
-        var Products = Product.findAll({
+      }).then(function(product){
+        var amount = product.get("amount");
+        productTable = product;
+
+        if(amount == 0) {
+          return Promise.reject('Sorry, product is sold out');
+        }
+
+          return Promise.resolve(product.get('price'));
+
+      }).then(function(price) {
+         productprice = price;
+        return UserInfo.findOne({
           where: {
-            id: items
+            userId: userid
           }
-        }).then(function(items) {
-          items.forEach(function(val, index) {
-            var id = val.get('id');
-            var amount = val.get('amount');
-            var price = val.get('price');
+        })
 
-            if(amount == 0 ) {
+      }).catch(function(err) {
+          var msg = {
+            type: "isSoldOut",
+            message: err
+          }
 
-            }
-            console.log(val.get('amount'));
+          res.json(msg);
+          return next();
+      }).then(function(user) {
+        if(user != null) {
+          var balance = user.get('balance');
+
+          if(productprice > balance) {
+            return Promise.reject('Sorry, you dont have enough money');
+          }
+            newBalance = balance - productprice;
+            newAmount = productTable.get('amount') - 1;
+
+            return Promise.resolve(user);
+        } else {
+          res.json({
+            type: "userNotFound"
           });
+          return next();
+        }
+
+      }).then(function(user) {
+
+        user.set('balance', newBalance);
+        user.save();
+        productTable.set('amount', newAmount);
+        productTable.save();
+
+        return Purchased.create({
+              productId: productTable.get('id'),
+              userInfoId: user.get('id'),
+            })
+      }).catch(function(err) {
+        res.json({
+          type: "notEnoughMoney",
+          message: err
         });
+        return next();
+      }).then(function(){
+        res.json({
+          type: "boughtItem",
+          message: "You bought a " + productTable.get('name')
+        });
+        return next();
       });
-      console.log(req.query);
-      console.log(req.body);
+
     });
   }
 

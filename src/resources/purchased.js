@@ -23,8 +23,8 @@ export default class PurchasedRoute extends Resource {
 
     this.server.post('/purchased', function(req, res, next){
       var productprice, productTable, newBalance, newAmount;
-      var userid = req.body.userid;
-      var productid = req.body.productid;
+      var userid = req.params.userid;
+      var productid = req.params.productid;
       var UserInfo = self.models.user_info;
       var Product = self.models.product;
       var Purchased = self.models.purchased;

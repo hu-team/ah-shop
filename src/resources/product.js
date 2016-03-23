@@ -22,7 +22,13 @@ export default class ProductRoute extends Resource {
     var Product = this.models.product;
 
     this.server.get('/products', function(req, res, next) {
-      Product.findAll().then(function(product){
+      Product.findAll({
+        where: {
+          amount: {
+            gt: 0
+          }
+        }
+      }).then(function(product){
 
         var msg = {
           type: "data",

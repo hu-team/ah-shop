@@ -1,0 +1,2 @@
+http://system.data.sqlite.org/downloads/1.0.101.0/sqlite-netFx451-setup-bundle-x64-2013-1.0.101.0.exe
+http://system.data.sqlite.org/downloads/1.0.101.0/sqlite-netFx451-setup-bundle-x86-2013-1.0.101.0.exe

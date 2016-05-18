@@ -32,6 +32,7 @@ namespace server
         {
             createUserResponse Response = new createUserResponse();
             Response.userid = "1";
+            Response.name = data.name;
             Response.username = data.username;
             Response.password = data.name;
 

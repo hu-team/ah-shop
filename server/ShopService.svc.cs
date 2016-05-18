@@ -8,8 +8,6 @@ using System.Text;
 
 namespace server
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ShopService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select ShopService.svc or ShopService.svc.cs at the Solution Explorer and start debugging.
     public class ShopService : IShopService
     {
         public string GetData(int value)
@@ -29,5 +27,41 @@ namespace server
             }
             return composite;
         }
+
+        public createUserResponse CreateUser(createUser data)
+        {
+            createUserResponse Response = new createUserResponse();
+            Response.userid = "1";
+            Response.username = data.username;
+            Response.password = data.name;
+
+            return Response;
+        }
+
+        public loginUserResponse LoginUser(loginUser data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public userDetailsResponse UserDetails(userDetails data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public purchaseProductResponse PurchaseProduct(purchaseProduct data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product[] ProductList(productList data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product[] HistoryList(historyList data)
+        {
+            throw new NotImplementedException();
+        }
+        
     }
 }

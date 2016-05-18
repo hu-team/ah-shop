@@ -100,6 +100,7 @@
     <Compile Include="ShopService.svc.cs">
       <DependentUpon>ShopService.svc</DependentUpon>
     </Compile>
+    <Compile Include="shopServiceInterfaces.cs" />
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>

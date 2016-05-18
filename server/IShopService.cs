@@ -19,7 +19,28 @@ namespace server
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        // TODO: Add your service operations here
+        
+        [OperationContract]
+        [WebInvoke(
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            RequestFormat = WebMessageFormat.Xml
+            )]
+        createUserResponse CreateUser(createUser data);
+
+        [OperationContract]
+        loginUserResponse LoginUser(loginUser data);
+
+        [OperationContract]
+        userDetailsResponse UserDetails(userDetails data);
+
+        [OperationContract]
+        purchaseProductResponse PurchaseProduct(purchaseProduct data);
+
+        [OperationContract]
+        Product[] ProductList(productList data);
+
+        [OperationContract]
+        Product[] HistoryList(historyList data);
     }
 
 

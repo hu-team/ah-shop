@@ -1,2 +1,3 @@
 
-# AH-Shop - Webservice Server
+# AH-Shop - Combined Repository
+

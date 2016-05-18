@@ -30,11 +30,22 @@ namespace server
 
         public createUserResponse CreateUser(createUser data)
         {
+            User user = new User();
+            user.name = data.name;
+            user.username = data.username;
+            user.password = "JAAJ";
+
+            using (var context = new databaseEntities())
+            {
+                context.User.Add(user);
+                context.SaveChanges();
+            }
+
             createUserResponse Response = new createUserResponse();
-            Response.userid = "1";
-            Response.name = data.name;
-            Response.username = data.username;
-            Response.password = data.name;
+            Response.userid = user.userid + "";
+            Response.name = user.name;
+            Response.username = user.username;
+            Response.password = user.password;
 
             return Response;
         }

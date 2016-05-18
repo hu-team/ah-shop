@@ -373,6 +373,7 @@ local.properties
 
 ## Build generated
 build/
+target/
 DerivedData
 
 ## Various settings

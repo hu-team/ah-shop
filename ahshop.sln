@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "server-cloud", "server-cloud\server-cloud.ccproj", "{C18E25A9-9D5E-41F4-98D8-3F3668442862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "server\server.csproj", "{2D6F4F7F-EA69-4E8C-8518-133774453106}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C18E25A9-9D5E-41F4-98D8-3F3668442862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18E25A9-9D5E-41F4-98D8-3F3668442862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18E25A9-9D5E-41F4-98D8-3F3668442862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18E25A9-9D5E-41F4-98D8-3F3668442862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D6F4F7F-EA69-4E8C-8518-133774453106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6F4F7F-EA69-4E8C-8518-133774453106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6F4F7F-EA69-4E8C-8518-133774453106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6F4F7F-EA69-4E8C-8518-133774453106}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

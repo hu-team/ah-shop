@@ -32,6 +32,41 @@
         <wsdl:part name="createUserResponse" element="res:createUserResponse" />
     </wsdl:message>
 
+    <wsdl:message name="loginUserRequest">
+        <wsdl:part name="loginUserRequest" element="req:loginUser" />
+    </wsdl:message>
+    <wsdl:message name="loginUserResponse">
+        <wsdl:part name="loginUserResponse" element="res:loginUserResponse" />
+    </wsdl:message>
+
+    <wsdl:message name="userDetailsRequest">
+        <wsdl:part name="userDetailsRequest" element="req:userDetails" />
+    </wsdl:message>
+    <wsdl:message name="userDetailsResponse">
+        <wsdl:part name="userDetailsResponse" element="res:userDetailsResponse" />
+    </wsdl:message>
+
+    <wsdl:message name="purchaseProductRequest">
+        <wsdl:part name="purchaseProductRequest" element="req:purchaseProduct" />
+    </wsdl:message>
+    <wsdl:message name="purchaseProductResponse">
+        <wsdl:part name="purchaseProductResponse" element="res:purchaseProductResponse" />
+    </wsdl:message>
+
+    <wsdl:message name="productListRequest">
+        <wsdl:part name="productListRequest" element="req:productList" />
+    </wsdl:message>
+    <wsdl:message name="productListResponse">
+        <wsdl:part name="productListResponse" element="res:productListResponse" />
+    </wsdl:message>
+
+    <wsdl:message name="historyListRequest">
+        <wsdl:part name="historyListRequest" element="req:historyList" />
+    </wsdl:message>
+    <wsdl:message name="historyListResponse">
+        <wsdl:part name="historyListResponse" element="res:historyListResponse" />
+    </wsdl:message>
+
     <wsdl:message name="ApplicationError">
         <wsdl:part name="ApplicationError" element="flt:ApplicationError"/>
     </wsdl:message>
@@ -43,11 +78,37 @@
             <wsdl:output message="srv:createUserResponse"/>
             <wsdl:fault name="ApplicationError" message="srv:ApplicationError"/>
         </wsdl:operation>
+        <wsdl:operation name="loginUser">
+            <wsdl:input message="srv:loginUserRequest"/>
+            <wsdl:output message="srv:loginUserResponse"/>
+            <wsdl:fault name="ApplicationError" message="srv:ApplicationError"/>
+        </wsdl:operation>
+        <wsdl:operation name="userDetails">
+            <wsdl:input message="srv:userDetailsRequest"/>
+            <wsdl:output message="srv:userDetailsResponse"/>
+            <wsdl:fault name="ApplicationError" message="srv:ApplicationError"/>
+        </wsdl:operation>
+        <wsdl:operation name="purchaseProduct">
+            <wsdl:input message="srv:purchaseProductRequest"/>
+            <wsdl:output message="srv:purchaseProductResponse"/>
+            <wsdl:fault name="ApplicationError" message="srv:ApplicationError"/>
+        </wsdl:operation>
+        <wsdl:operation name="productList">
+            <wsdl:input message="srv:productListRequest"/>
+            <wsdl:output message="srv:productListResponse"/>
+            <wsdl:fault name="ApplicationError" message="srv:ApplicationError"/>
+        </wsdl:operation>
+        <wsdl:operation name="historyList">
+            <wsdl:input message="srv:historyListRequest"/>
+            <wsdl:output message="srv:historyListResponse"/>
+            <wsdl:fault name="ApplicationError" message="srv:ApplicationError"/>
+        </wsdl:operation>
     </wsdl:portType>
 
 
     <wsdl:binding name="WS-Binding" type="srv:ws-interface">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
         <wsdl:operation name="createUser">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input>
@@ -57,7 +118,72 @@
                 <soap:body parts="createUserResponse" use="literal"/>
             </wsdl:output>
             <wsdl:fault name="ApplicationError">
-                <soap:fault name="ApplicatieError" use="literal"/>
+                <soap:fault name="ApplicationError" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="loginUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body parts="loginUserRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="loginUserResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApplicationError">
+                <soap:fault name="ApplicationError" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="userDetails">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body parts="userDetailsRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="userDetailsResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApplicationError">
+                <soap:fault name="ApplicationError" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="purchaseProduct">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body parts="purchaseProductRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="purchaseProductResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApplicationError">
+                <soap:fault name="ApplicationError" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="productList">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body parts="productListRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="productListResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApplicationError">
+                <soap:fault name="ApplicationError" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+
+        <wsdl:operation name="historyList">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body parts="historyListRequest" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="historyListResponse" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ApplicationError">
+                <soap:fault name="ApplicationError" use="literal"/>
             </wsdl:fault>
         </wsdl:operation>
     </wsdl:binding>

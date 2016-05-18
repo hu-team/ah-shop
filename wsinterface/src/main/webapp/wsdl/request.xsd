@@ -30,7 +30,7 @@
     </complexType>
 
 
-    <element name="purchaseItem" type="req:purchaseProduct" />
+    <element name="purchaseProduct" type="req:purchaseProduct" />
     <complexType name="purchaseProduct">
         <sequence>
             <!-- Item ID, article number -->

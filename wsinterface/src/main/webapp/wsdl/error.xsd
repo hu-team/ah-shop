@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://schemas.arvici.nl/messages/error"
+        xmlns:flt="http://schemas.arvici.nl/messages/error"
+        elementFormDefault="qualified">
+
+    <element name="ApplicationError" type="flt:ApplicationError" />
+
+    <complexType name="ApplicationError">
+        <sequence>
+            <element name="errorCode" type="short" />
+            <element name="message" type="string" />
+        </sequence>
+    </complexType>
+</schema>

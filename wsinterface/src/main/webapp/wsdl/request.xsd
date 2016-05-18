@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://schemas.arvici.nl/messages/request"
+        xmlns:req="http://schemas.arvici.nl/messages/request"
+        elementFormDefault="qualified">
+
+    <element name="createUser" type="req:createUser" />
+    <complexType name="createUser">
+        <sequence>
+            <element name="username" type="string" />
+            <element name="name" type="string" />
+        </sequence>
+    </complexType>
+
+
+    <element name="loginUser" type="req:loginUser" />
+    <complexType name="loginUser">
+        <sequence>
+            <element name="username" type="string" />
+            <element name="password" type="string" />
+        </sequence>
+    </complexType>
+
+
+    <element name="userDetails" type="req:userDetails"/>
+    <complexType name="userDetails">
+        <sequence>
+            <element name="user" type="positiveInteger" />
+        </sequence>
+    </complexType>
+
+
+    <element name="purchaseItem" type="req:purchaseProduct" />
+    <complexType name="purchaseProduct">
+        <sequence>
+            <!-- Item ID, article number -->
+            <element name="productid" type="positiveInteger" />
+        </sequence>
+    </complexType>
+
+
+    <element name="productList" type="req:productList" />
+    <complexType name="productList">
+        <sequence>
+        </sequence>
+    </complexType>
+
+
+    <element name="historyList" type="req:historyList" />
+    <complexType name="historyList">
+        <sequence>
+            <element name="user" type="positiveInteger" />
+        </sequence>
+    </complexType>
+</schema>

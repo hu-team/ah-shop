@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://schemas.arvici.nl/messages/response"
+        xmlns:res="http://schemas.arvici.nl/messages/response"
+        xmlns:mdl="http://schemas.arvici.nl/model"
+        elementFormDefault="qualified">
+    <import namespace="http://schemas.arvici.nl/model" schemaLocation="model.xsd" />
+
+    <element name="createUserResponse" type="res:createUserResponse" />
+    <complexType name="createUserResponse">
+        <sequence>
+            <element name="userid" type="positiveInteger" />
+            <element name="username" type="string" />
+            <element name="password" type="string" />
+        </sequence>
+    </complexType>
+
+
+    <element name="loginUserResponse" type="res:loginUserResponse" />
+    <complexType name="loginUserResponse">
+        <sequence>
+            <element name="success" type="boolean" />
+            <element name="userid" type="positiveInteger" />
+            <element name="balance" type="float" />
+        </sequence>
+    </complexType>
+
+
+    <element name="userDetailsResponse" type="res:userDetailsResponse" />
+    <complexType name="userDetailsResponse">
+        <sequence>
+            <element name="userid" type="positiveInteger" />
+            <element name="name" type="string" />
+            <element name="username" type="string" />
+            <element name="balance" type="float" />
+        </sequence>
+    </complexType>
+
+
+    <element name="purchaseProductResponse" type="res:purchaseProductResponse" />
+    <complexType name="purchaseProductResponse">
+        <sequence>
+            <element name="success" type="boolean" />
+            <element name="balance" type="float" />
+        </sequence>
+    </complexType>
+
+
+    <element name="productListResponse" type="res:productListResponse"/>
+    <complexType name="productListResponse">
+        <sequence>
+            <element name="product" type="mdl:Product" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+
+
+    <element name="historyListResponse" type="res:historyListResponse" />
+    <complexType name="historyListResponse">
+        <sequence>
+            <element name="product" type="mdl:Product" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+</schema>

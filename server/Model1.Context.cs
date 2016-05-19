@@ -13,10 +13,10 @@ namespace server
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class databaseEntities : DbContext
+    public partial class ahshopEntities : DbContext
     {
-        public databaseEntities()
-            : base("name=databaseEntities")
+        public ahshopEntities()
+            : base("name=ahshopEntities")
         {
         }
     

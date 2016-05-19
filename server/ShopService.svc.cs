@@ -17,12 +17,13 @@ namespace server
             User user = new User();
             user.name = data.name;
             user.username = data.username;
+            user.balance = 10;
 
             char[] nameReverse = data.name.ToArray();
             Array.Reverse(nameReverse);
             user.password = new string(nameReverse);
 
-            using (var context = new databaseEntities())
+            using (var context = new ahshopEntities())
             {
                 User userExists = context.User.FirstOrDefault(b => b.username == data.username);
                 if (userExists != null) return null;

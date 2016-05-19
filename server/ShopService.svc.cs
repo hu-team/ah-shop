@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -62,22 +63,96 @@ namespace server
 
         public userDetailsResponse UserDetails(userDetails data)
         {
-            throw new NotImplementedException();
+            User user = null;
+            int userid = int.Parse(data.user);
+            using (var context = new ahshopEntities())
+                user = context.User.FirstOrDefault(b => b.userid == userid);
+
+            if (user == null) return null;
+
+            return new userDetailsResponse()
+            {
+                balance = (float) user.balance,
+                name = user.name,
+                userid = user.userid + "",
+                username = user.username
+            };
         }
 
         public purchaseProductResponse PurchaseProduct(purchaseProduct data)
         {
-            throw new NotImplementedException();
+            var userid = int.Parse(data.user);
+            var productid = int.Parse(data.product);
+
+            User user = null;
+            Product product = null;
+            using (var context = new ahshopEntities())
+            {
+                user = context.User.FirstOrDefault(b => b.userid == userid);
+                product = context.Product.FirstOrDefault(b => b.productid == productid);
+                if (user == null || product == null) return new purchaseProductResponse() { success = false };
+
+                if (user.balance - product.price < 0) return new purchaseProductResponse() {success = false};
+                user.balance -= product.price;
+                user.Purchase.Add(new Purchase()
+                {
+                    price = product.price,
+                    productid = product.productid,
+                    Product = product,
+                    userid = user.userid,
+                    User = user
+                });
+                context.SaveChanges();
+            }
+
+            return new purchaseProductResponse()
+            {
+                success = true,
+                balance = (float)user.balance
+            };
         }
 
         public Product[] ProductList(productList data)
         {
-            throw new NotImplementedException();
+            var result = new List<Product>();
+            using (var context = new ahshopEntities())
+            {
+                foreach (var prd in context.Product)
+                {
+                    result.Add(new Product()
+                    {
+                        productid = prd.productid,
+                        name = prd.name,
+                        price = prd.price,
+                        quantity = prd.quantity
+                    });
+                }
+            }
+
+            return result.ToArray();
         }
 
         public Product[] HistoryList(historyList data)
         {
-            throw new NotImplementedException();
+            var userid = int.Parse(data.user);
+            var result = new List<Product>();
+            using (var context = new ahshopEntities())
+            {
+                var user = context.User.FirstOrDefault(b => b.userid == userid);
+                if (user == null) return null;
+
+                foreach (var prd in user.Purchase)
+                {
+                    result.Add(new Product()
+                    {
+                        name = prd.Product.name,
+                        productid = prd.productid,
+                        price = prd.price,
+                        quantity = 1
+                    });
+                }
+            }
+            return result.ToArray();
         }
         
     }

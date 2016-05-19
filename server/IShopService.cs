@@ -21,18 +21,38 @@ namespace server
         createUserResponse CreateUser(createUser data);
 
         [OperationContract]
+        [WebInvoke(
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            RequestFormat = WebMessageFormat.Xml
+            )]
         loginUserResponse LoginUser(loginUser data);
 
         [OperationContract]
+        [WebInvoke(
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            RequestFormat = WebMessageFormat.Xml
+            )]
         userDetailsResponse UserDetails(userDetails data);
 
         [OperationContract]
+        [WebInvoke(
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            RequestFormat = WebMessageFormat.Xml
+            )]
         purchaseProductResponse PurchaseProduct(purchaseProduct data);
 
         [OperationContract]
+        [WebInvoke(
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            RequestFormat = WebMessageFormat.Xml
+            )]
         Product[] ProductList(productList data);
 
         [OperationContract]
+        [WebInvoke(
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            RequestFormat = WebMessageFormat.Xml
+            )]
         Product[] HistoryList(historyList data);
     }
 

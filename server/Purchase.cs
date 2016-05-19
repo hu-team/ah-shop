@@ -17,6 +17,7 @@ namespace server
         public int purchaseid { get; set; }
         public int userid { get; set; }
         public int productid { get; set; }
+        public decimal price { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }

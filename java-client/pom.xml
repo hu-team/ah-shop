@@ -13,10 +13,6 @@
 	</parent>
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>nl.arvici.ahshop</groupId>
 			<artifactId>wsinterface</artifactId>
 		</dependency>

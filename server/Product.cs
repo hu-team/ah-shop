@@ -14,10 +14,18 @@ namespace server
     
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.Purchase = new HashSet<Purchase>();
+        }
+    
         public int productid { get; set; }
         public string name { get; set; }
-        public decimal price { get; set; }
         public int quantity { get; set; }
-        public int User_userid { get; set; }
+        public decimal price { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Purchase> Purchase { get; set; }
     }
 }

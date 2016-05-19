@@ -14,10 +14,19 @@ namespace server
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Purchase = new HashSet<Purchase>();
+        }
+    
         public int userid { get; set; }
         public string name { get; set; }
         public string username { get; set; }
         public string password { get; set; }
         public decimal balance { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Purchase> Purchase { get; set; }
     }
 }

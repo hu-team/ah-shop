@@ -12,13 +12,6 @@ namespace server
     [ServiceContract]
     public interface IShopService
     {
-
-        [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
         
         [OperationContract]
         [WebInvoke(

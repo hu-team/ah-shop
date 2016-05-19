@@ -43,7 +43,21 @@ namespace server
 
         public loginUserResponse LoginUser(loginUser data)
         {
-            throw new NotImplementedException();
+            User user = null;
+            using (var context = new ahshopEntities())
+            {
+                user = context.User
+                                .Where(b => b.username == data.username)
+                                .FirstOrDefault(b => b.password == data.password);
+            }
+
+            loginUserResponse response = new loginUserResponse();
+            response.success = user != null;
+            if (user == null) return response;
+
+            response.balance = (float) user.balance;
+            response.userid = user.userid + "";
+            return response;
         }
 
         public userDetailsResponse UserDetails(userDetails data)

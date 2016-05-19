@@ -13,24 +13,31 @@ namespace server
 
         public createUserResponse CreateUser(createUser data)
         {
+            // Save the model to the datastore if it doesn't exists
             User user = new User();
             user.name = data.name;
             user.username = data.username;
-            user.password = "JAAJ";
+
+            char[] nameReverse = data.name.ToArray();
+            Array.Reverse(nameReverse);
+            user.password = new string(nameReverse);
 
             using (var context = new databaseEntities())
             {
+                User userExists = context.User.FirstOrDefault(b => b.username == data.username);
+                if (userExists != null) return null;
+
                 context.User.Add(user);
                 context.SaveChanges();
             }
 
-            createUserResponse Response = new createUserResponse();
-            Response.userid = user.userid + "";
-            Response.name = user.name;
-            Response.username = user.username;
-            Response.password = user.password;
-
-            return Response;
+            return new createUserResponse()
+            {
+                username = user.username,
+                name = user.name,
+                userid = user.userid + "",
+                password = user.password
+            };
         }
 
         public loginUserResponse LoginUser(loginUser data)

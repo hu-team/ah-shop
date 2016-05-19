@@ -34,7 +34,8 @@
     <complexType name="purchaseProduct">
         <sequence>
             <!-- Item ID, article number -->
-            <element name="productid" type="positiveInteger" />
+            <element name="product" type="positiveInteger" />
+			<element name="user" type="positiveInteger" />
         </sequence>
     </complexType>
 

@@ -191,8 +191,8 @@
 
     <wsdl:service name="shopService">
         <wsdl:port name="WS-Port" binding="srv:WS-Binding">
-            <soap:address location="http://ahshop-server.azurewebsites.net/ahshop" />
-            <soap:address location="http://localhost:8080/ahshop" />
+            <soap:address location="http://ahshop-server.azurewebsites.net/ShopService.svc" />
+            <soap:address location="http://localhost:10976/ShopService.svc" />
         </wsdl:port>
     </wsdl:service>
 

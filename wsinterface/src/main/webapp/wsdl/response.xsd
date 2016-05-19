@@ -12,6 +12,7 @@
             <element name="userid" type="positiveInteger" />
             <element name="username" type="string" />
             <element name="password" type="string" />
+			<element name="name" type="string" />
         </sequence>
     </complexType>
 

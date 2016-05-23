@@ -10,8 +10,7 @@
 	<name>Package of ahshop project.</name>
 
 	<modules>
-		<module>java-client</module>
-		<module>net-client</module>
+		<module>client-java</module>
 		<module>wsinterface</module>
 	</modules>
 

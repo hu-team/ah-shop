@@ -78,12 +78,15 @@ namespace server
                 if (user == null) return ServiceResponse<Purchase>.Error(null, "User not found!");
                 if (product == null) return ServiceResponse<Purchase>.Error(null, "Product not found!");
                 if (user.balance - product.price < 0) return ServiceResponse<Purchase>.Error(null, "Not enough money!");
+                if (product.quantity - 1 < 0) return ServiceResponse<Purchase>.Error(null, "Not enough items in shop!");
 
                 purchase.price = product.price;
                 purchase.productid = product.productid;
                 purchase.Product = product;
                 purchase.userid = user.userid;
                 purchase.User = user;
+
+                product.quantity -= 1;
 
                 user.balance -= product.price;
                 user.Purchase.Add(purchase);

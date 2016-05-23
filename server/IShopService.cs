@@ -1,60 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
 
 namespace server
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
+    [System.Web.Services.WebServiceBindingAttribute(Name = "WS-Binding", Namespace = "http://schemas.arvici.nl/messages/message")]
     public interface IShopService
     {
-        
         [OperationContract]
         [WebInvoke(
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             RequestFormat = WebMessageFormat.Xml
             )]
-        createUserResponse CreateUser(createUser data);
+        ServiceResponse<User> CreateUser(CreateUserData data);
+
+
 
         [OperationContract]
         [WebInvoke(
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             RequestFormat = WebMessageFormat.Xml
             )]
-        loginUserResponse LoginUser(loginUser data);
+        ServiceResponse<User> LoginUser(LoginUserData data);
+
+
 
         [OperationContract]
         [WebInvoke(
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             RequestFormat = WebMessageFormat.Xml
             )]
-        userDetailsResponse UserDetails(userDetails data);
+        ServiceResponse<User> UserDetails(UserDetailsData data);
+
+
 
         [OperationContract]
         [WebInvoke(
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             RequestFormat = WebMessageFormat.Xml
             )]
-        purchaseProductResponse PurchaseProduct(purchaseProduct data);
+        ServiceResponse<Purchase> PurchaseProduct(PurchaseProductData data);
+
+
 
         [OperationContract]
         [WebInvoke(
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             RequestFormat = WebMessageFormat.Xml
             )]
-        Product[] ProductList(productList data);
+        ServiceResponse<Product[]> ProductList();
+
+
 
         [OperationContract]
         [WebInvoke(
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             RequestFormat = WebMessageFormat.Xml
             )]
-        Product[] HistoryList(historyList data);
+        ServiceResponse<Purchase[]> HistoryList(HistoryListData data);
     }
+
+    
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

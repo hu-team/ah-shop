@@ -167,6 +167,7 @@
       <DependentUpon>ShopService.svc</DependentUpon>
     </Compile>
     <Compile Include="shopServiceInterfaces.cs" />
+    <Compile Include="ShopServiceUtil.cs" />
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -2,157 +2,125 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace server
 {
     public class ShopService : IShopService
     {
 
-        public createUserResponse CreateUser(createUser data)
+        public ServiceResponse<User> CreateUser(CreateUserData data)
         {
             // Save the model to the datastore if it doesn't exists
             User user = new User();
-            user.name = data.name;
-            user.username = data.username;
+            user.name = data.Name;
+            user.username = data.Username;
             user.balance = 10;
 
-            char[] nameReverse = data.name.ToArray();
+            char[] nameReverse = data.Name.ToArray();
             Array.Reverse(nameReverse);
             user.password = new string(nameReverse);
 
             using (var context = new ahshopEntities())
             {
-                User userExists = context.User.FirstOrDefault(b => b.username == data.username);
-                if (userExists != null) return null;
+                User userExists = context.User.FirstOrDefault(b => b.username == data.Username);
+                if (userExists != null) return ServiceResponse<User>.Error(null, "Username already exists!");
 
                 context.User.Add(user);
                 context.SaveChanges();
             }
-
-            return new createUserResponse()
-            {
-                username = user.username,
-                name = user.name,
-                userid = user.userid + "",
-                password = user.password
-            };
+            return ServiceResponse<User>.Success(user, "User successfully created!");
         }
+        
 
-        public loginUserResponse LoginUser(loginUser data)
+
+        public ServiceResponse<User> LoginUser(LoginUserData data)
         {
             User user = null;
             using (var context = new ahshopEntities())
             {
                 user = context.User
-                                .Where(b => b.username == data.username)
-                                .FirstOrDefault(b => b.password == data.password);
+                                .FirstOrDefault(b => b.password == data.Password && b.password == data.Password);
             }
 
-            loginUserResponse response = new loginUserResponse();
-            response.success = user != null;
-            if (user == null) return response;
-
-            response.balance = (float) user.balance;
-            response.userid = user.userid + "";
-            return response;
+            if (user != null)
+            {
+                // bug: Some kind of bug causes to empty the response.
+                // Prevent by hack
+                return ServiceResponse<User>.Success(Copy.CloneUser(user), "Welcome back!");
+            }
+            else
+            {
+                return ServiceResponse<User>.Error(null, "Invalid credentials");
+            }
         }
 
-        public userDetailsResponse UserDetails(userDetails data)
+
+
+        public ServiceResponse<User> UserDetails(UserDetailsData data)
         {
             User user = null;
-            int userid = int.Parse(data.user);
             using (var context = new ahshopEntities())
-                user = context.User.FirstOrDefault(b => b.userid == userid);
-
-            if (user == null) return null;
-
-            return new userDetailsResponse()
-            {
-                balance = (float) user.balance,
-                name = user.name,
-                userid = user.userid + "",
-                username = user.username
-            };
+                user = context.User.FirstOrDefault(b => b.userid == data.UserID);
+            return user == null ? ServiceResponse<User>.Error(null, "Not Found!") : ServiceResponse<User>.Success(Copy.CloneUser(user));
         }
 
-        public purchaseProductResponse PurchaseProduct(purchaseProduct data)
-        {
-            var userid = int.Parse(data.user);
-            var productid = int.Parse(data.product);
 
+        public ServiceResponse<Purchase> PurchaseProduct(PurchaseProductData data)
+        {
             User user = null;
             Product product = null;
+            Purchase purchase = new Purchase();
+
             using (var context = new ahshopEntities())
             {
-                user = context.User.FirstOrDefault(b => b.userid == userid);
-                product = context.Product.FirstOrDefault(b => b.productid == productid);
-                if (user == null || product == null) return new purchaseProductResponse() { success = false };
+                user = context.User.FirstOrDefault(b => b.userid == data.UserID);
+                product = context.Product.FirstOrDefault(b => b.productid == data.ProductID);
+                if (user == null) return ServiceResponse<Purchase>.Error(null, "User not found!");
+                if (product == null) return ServiceResponse<Purchase>.Error(null, "Product not found!");
+                if (user.balance - product.price < 0) return ServiceResponse<Purchase>.Error(null, "Not enough money!");
 
-                if (user.balance - product.price < 0) return new purchaseProductResponse() {success = false};
+                purchase.price = product.price;
+                purchase.productid = product.productid;
+                purchase.Product = product;
+                purchase.userid = user.userid;
+                purchase.User = user;
+
                 user.balance -= product.price;
-                user.Purchase.Add(new Purchase()
-                {
-                    price = product.price,
-                    productid = product.productid,
-                    Product = product,
-                    userid = user.userid,
-                    User = user
-                });
+                user.Purchase.Add(purchase);
                 context.SaveChanges();
             }
 
-            return new purchaseProductResponse()
-            {
-                success = true,
-                balance = (float)user.balance
-            };
+            return ServiceResponse<Purchase>.Success(Copy.ClonePurchase(purchase));
         }
 
-        public Product[] ProductList(productList data)
+
+
+        public ServiceResponse<Product[]> ProductList()
         {
             var result = new List<Product>();
             using (var context = new ahshopEntities())
-            {
-                foreach (var prd in context.Product)
-                {
-                    result.Add(new Product()
-                    {
-                        productid = prd.productid,
-                        name = prd.name,
-                        price = prd.price,
-                        quantity = prd.quantity
-                    });
-                }
-            }
-
-            return result.ToArray();
+                result.AddRange(context.Product.Select(prd => Copy.CloneProduct(prd)));
+            return ServiceResponse<Product[]>.Success(result.ToArray());
         }
 
-        public Product[] HistoryList(historyList data)
+
+
+        public ServiceResponse<Purchase[]> HistoryList(HistoryListData data)
         {
-            var userid = int.Parse(data.user);
-            var result = new List<Product>();
+            var result = new List<Purchase>();
             using (var context = new ahshopEntities())
             {
-                var user = context.User.FirstOrDefault(b => b.userid == userid);
-                if (user == null) return null;
+                var user = context.User.FirstOrDefault(b => b.userid == data.UserID);
+                if (user == null) return ServiceResponse<Purchase[]>.Error(null, "User not found!");
 
-                foreach (var prd in user.Purchase)
+                foreach (var pur in user.Purchase)
                 {
-                    result.Add(new Product()
-                    {
-                        name = prd.Product.name,
-                        productid = prd.productid,
-                        price = prd.price,
-                        quantity = 1
-                    });
+                    var purchase = Copy.ClonePurchase(pur);
+                    purchase.Product = Copy.CloneProduct(pur.Product);
+                    result.Add(purchase);
                 }
             }
-            return result.ToArray();
+            return ServiceResponse<Purchase[]>.Success(result.ToArray());
         }
         
     }

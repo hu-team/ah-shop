@@ -15,16 +15,18 @@ namespace client_net.ShopServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="createUser", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CreateUserData", Namespace="http://schemas.datacontract.org/2004/07/server")]
     [System.SerializableAttribute()]
-    public partial class createUser : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class CreateUserData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private string nameFieldField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
         
-        private string usernameFieldField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -36,28 +38,28 @@ namespace client_net.ShopServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string nameField {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
             get {
-                return this.nameFieldField;
+                return this.NameField;
             }
             set {
-                if ((object.ReferenceEquals(this.nameFieldField, value) != true)) {
-                    this.nameFieldField = value;
-                    this.RaisePropertyChanged("nameField");
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string usernameField {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
             get {
-                return this.usernameFieldField;
+                return this.UsernameField;
             }
             set {
-                if ((object.ReferenceEquals(this.usernameFieldField, value) != true)) {
-                    this.usernameFieldField = value;
-                    this.RaisePropertyChanged("usernameField");
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
                 }
             }
         }
@@ -74,529 +76,18 @@ namespace client_net.ShopServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="createUserResponse", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfUserUEsMBek5", Namespace="http://schemas.datacontract.org/2004/07/server")]
     [System.SerializableAttribute()]
-    public partial class createUserResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string nameFieldField;
-        
-        private string passwordFieldField;
-        
-        private string useridFieldField;
-        
-        private string usernameFieldField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string nameField {
-            get {
-                return this.nameFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameFieldField, value) != true)) {
-                    this.nameFieldField = value;
-                    this.RaisePropertyChanged("nameField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string passwordField {
-            get {
-                return this.passwordFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.passwordFieldField, value) != true)) {
-                    this.passwordFieldField = value;
-                    this.RaisePropertyChanged("passwordField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string useridField {
-            get {
-                return this.useridFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.useridFieldField, value) != true)) {
-                    this.useridFieldField = value;
-                    this.RaisePropertyChanged("useridField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string usernameField {
-            get {
-                return this.usernameFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.usernameFieldField, value) != true)) {
-                    this.usernameFieldField = value;
-                    this.RaisePropertyChanged("usernameField");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="loginUser", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class loginUser : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string passwordFieldField;
-        
-        private string usernameFieldField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string passwordField {
-            get {
-                return this.passwordFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.passwordFieldField, value) != true)) {
-                    this.passwordFieldField = value;
-                    this.RaisePropertyChanged("passwordField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string usernameField {
-            get {
-                return this.usernameFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.usernameFieldField, value) != true)) {
-                    this.usernameFieldField = value;
-                    this.RaisePropertyChanged("usernameField");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="loginUserResponse", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class loginUserResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private float balanceFieldField;
-        
-        private bool successFieldField;
-        
-        private string useridFieldField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public float balanceField {
-            get {
-                return this.balanceFieldField;
-            }
-            set {
-                if ((this.balanceFieldField.Equals(value) != true)) {
-                    this.balanceFieldField = value;
-                    this.RaisePropertyChanged("balanceField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public bool successField {
-            get {
-                return this.successFieldField;
-            }
-            set {
-                if ((this.successFieldField.Equals(value) != true)) {
-                    this.successFieldField = value;
-                    this.RaisePropertyChanged("successField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string useridField {
-            get {
-                return this.useridFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.useridFieldField, value) != true)) {
-                    this.useridFieldField = value;
-                    this.RaisePropertyChanged("useridField");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="userDetails", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class userDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string userFieldField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string userField {
-            get {
-                return this.userFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userFieldField, value) != true)) {
-                    this.userFieldField = value;
-                    this.RaisePropertyChanged("userField");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="userDetailsResponse", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class userDetailsResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private float balanceFieldField;
-        
-        private string nameFieldField;
-        
-        private string useridFieldField;
-        
-        private string usernameFieldField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public float balanceField {
-            get {
-                return this.balanceFieldField;
-            }
-            set {
-                if ((this.balanceFieldField.Equals(value) != true)) {
-                    this.balanceFieldField = value;
-                    this.RaisePropertyChanged("balanceField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string nameField {
-            get {
-                return this.nameFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameFieldField, value) != true)) {
-                    this.nameFieldField = value;
-                    this.RaisePropertyChanged("nameField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string useridField {
-            get {
-                return this.useridFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.useridFieldField, value) != true)) {
-                    this.useridFieldField = value;
-                    this.RaisePropertyChanged("useridField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string usernameField {
-            get {
-                return this.usernameFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.usernameFieldField, value) != true)) {
-                    this.usernameFieldField = value;
-                    this.RaisePropertyChanged("usernameField");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="purchaseProduct", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class purchaseProduct : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string productFieldField;
-        
-        private string userFieldField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string productField {
-            get {
-                return this.productFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.productFieldField, value) != true)) {
-                    this.productFieldField = value;
-                    this.RaisePropertyChanged("productField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string userField {
-            get {
-                return this.userFieldField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userFieldField, value) != true)) {
-                    this.userFieldField = value;
-                    this.RaisePropertyChanged("userField");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="purchaseProductResponse", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class purchaseProductResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private float balanceFieldField;
-        
-        private bool successFieldField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public float balanceField {
-            get {
-                return this.balanceFieldField;
-            }
-            set {
-                if ((this.balanceFieldField.Equals(value) != true)) {
-                    this.balanceFieldField = value;
-                    this.RaisePropertyChanged("balanceField");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public bool successField {
-            get {
-                return this.successFieldField;
-            }
-            set {
-                if ((this.successFieldField.Equals(value) != true)) {
-                    this.successFieldField = value;
-                    this.RaisePropertyChanged("successField");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="productList", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class productList : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/server")]
-    [System.SerializableAttribute()]
-    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ServiceResponseOfUserUEsMBek5 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private client_net.ShopServiceReference.Purchase[] PurchaseField;
+        private client_net.ShopServiceReference.User DataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal priceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int productidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int quantityField;
+        private client_net.ShopServiceReference.MetaData MetaField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -609,191 +100,27 @@ namespace client_net.ShopServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public client_net.ShopServiceReference.Purchase[] Purchase {
+        public client_net.ShopServiceReference.User Data {
             get {
-                return this.PurchaseField;
+                return this.DataField;
             }
             set {
-                if ((object.ReferenceEquals(this.PurchaseField, value) != true)) {
-                    this.PurchaseField = value;
-                    this.RaisePropertyChanged("Purchase");
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
+        public client_net.ShopServiceReference.MetaData Meta {
             get {
-                return this.nameField;
+                return this.MetaField;
             }
             set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal price {
-            get {
-                return this.priceField;
-            }
-            set {
-                if ((this.priceField.Equals(value) != true)) {
-                    this.priceField = value;
-                    this.RaisePropertyChanged("price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int productid {
-            get {
-                return this.productidField;
-            }
-            set {
-                if ((this.productidField.Equals(value) != true)) {
-                    this.productidField = value;
-                    this.RaisePropertyChanged("productid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int quantity {
-            get {
-                return this.quantityField;
-            }
-            set {
-                if ((this.quantityField.Equals(value) != true)) {
-                    this.quantityField = value;
-                    this.RaisePropertyChanged("quantity");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Purchase", Namespace="http://schemas.datacontract.org/2004/07/server")]
-    [System.SerializableAttribute()]
-    public partial class Purchase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private client_net.ShopServiceReference.Product ProductField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private client_net.ShopServiceReference.User UserField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal priceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int productidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int purchaseidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int useridField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public client_net.ShopServiceReference.Product Product {
-            get {
-                return this.ProductField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
-                    this.ProductField = value;
-                    this.RaisePropertyChanged("Product");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public client_net.ShopServiceReference.User User {
-            get {
-                return this.UserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal price {
-            get {
-                return this.priceField;
-            }
-            set {
-                if ((this.priceField.Equals(value) != true)) {
-                    this.priceField = value;
-                    this.RaisePropertyChanged("price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int productid {
-            get {
-                return this.productidField;
-            }
-            set {
-                if ((this.productidField.Equals(value) != true)) {
-                    this.productidField = value;
-                    this.RaisePropertyChanged("productid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int purchaseid {
-            get {
-                return this.purchaseidField;
-            }
-            set {
-                if ((this.purchaseidField.Equals(value) != true)) {
-                    this.purchaseidField = value;
-                    this.RaisePropertyChanged("purchaseid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int userid {
-            get {
-                return this.useridField;
-            }
-            set {
-                if ((this.useridField.Equals(value) != true)) {
-                    this.useridField = value;
-                    this.RaisePropertyChanged("userid");
+                if ((object.ReferenceEquals(this.MetaField, value) != true)) {
+                    this.MetaField = value;
+                    this.RaisePropertyChanged("Meta");
                 }
             }
         }
@@ -935,14 +262,18 @@ namespace client_net.ShopServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="historyList", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MetaData", Namespace="http://schemas.datacontract.org/2004/07/server")]
     [System.SerializableAttribute()]
-    public partial class historyList : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class MetaData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private string userFieldField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool SuccessField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -954,15 +285,657 @@ namespace client_net.ShopServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string userField {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
             get {
-                return this.userFieldField;
+                return this.MessageField;
             }
             set {
-                if ((object.ReferenceEquals(this.userFieldField, value) != true)) {
-                    this.userFieldField = value;
-                    this.RaisePropertyChanged("userField");
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Success {
+            get {
+                return this.SuccessField;
+            }
+            set {
+                if ((this.SuccessField.Equals(value) != true)) {
+                    this.SuccessField = value;
+                    this.RaisePropertyChanged("Success");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Purchase", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class Purchase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.Product ProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.User UserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal priceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int productidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int purchaseidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int useridField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.Product Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.User User {
+            get {
+                return this.UserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal price {
+            get {
+                return this.priceField;
+            }
+            set {
+                if ((this.priceField.Equals(value) != true)) {
+                    this.priceField = value;
+                    this.RaisePropertyChanged("price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int productid {
+            get {
+                return this.productidField;
+            }
+            set {
+                if ((this.productidField.Equals(value) != true)) {
+                    this.productidField = value;
+                    this.RaisePropertyChanged("productid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int purchaseid {
+            get {
+                return this.purchaseidField;
+            }
+            set {
+                if ((this.purchaseidField.Equals(value) != true)) {
+                    this.purchaseidField = value;
+                    this.RaisePropertyChanged("purchaseid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int userid {
+            get {
+                return this.useridField;
+            }
+            set {
+                if ((this.useridField.Equals(value) != true)) {
+                    this.useridField = value;
+                    this.RaisePropertyChanged("userid");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.Purchase[] PurchaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal priceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int productidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int quantityField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.Purchase[] Purchase {
+            get {
+                return this.PurchaseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PurchaseField, value) != true)) {
+                    this.PurchaseField = value;
+                    this.RaisePropertyChanged("Purchase");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal price {
+            get {
+                return this.priceField;
+            }
+            set {
+                if ((this.priceField.Equals(value) != true)) {
+                    this.priceField = value;
+                    this.RaisePropertyChanged("price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int productid {
+            get {
+                return this.productidField;
+            }
+            set {
+                if ((this.productidField.Equals(value) != true)) {
+                    this.productidField = value;
+                    this.RaisePropertyChanged("productid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int quantity {
+            get {
+                return this.quantityField;
+            }
+            set {
+                if ((this.quantityField.Equals(value) != true)) {
+                    this.quantityField = value;
+                    this.RaisePropertyChanged("quantity");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LoginUserData", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class LoginUserData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserDetailsData", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class UserDetailsData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PurchaseProductData", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class PurchaseProductData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductID {
+            get {
+                return this.ProductIDField;
+            }
+            set {
+                if ((this.ProductIDField.Equals(value) != true)) {
+                    this.ProductIDField = value;
+                    this.RaisePropertyChanged("ProductID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfPurchaseUEsMBek5", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfPurchaseUEsMBek5 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.Purchase DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.MetaData MetaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.Purchase Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.MetaData Meta {
+            get {
+                return this.MetaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MetaField, value) != true)) {
+                    this.MetaField = value;
+                    this.RaisePropertyChanged("Meta");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfArrayOfProductUEsMBek5", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfArrayOfProductUEsMBek5 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.Product[] DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.MetaData MetaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.Product[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.MetaData Meta {
+            get {
+                return this.MetaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MetaField, value) != true)) {
+                    this.MetaField = value;
+                    this.RaisePropertyChanged("Meta");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="HistoryListData", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class HistoryListData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfArrayOfPurchaseUEsMBek5", Namespace="http://schemas.datacontract.org/2004/07/server")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfArrayOfPurchaseUEsMBek5 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.Purchase[] DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private client_net.ShopServiceReference.MetaData MetaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.Purchase[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public client_net.ShopServiceReference.MetaData Meta {
+            get {
+                return this.MetaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MetaField, value) != true)) {
+                    this.MetaField = value;
+                    this.RaisePropertyChanged("Meta");
                 }
             }
         }
@@ -982,40 +955,40 @@ namespace client_net.ShopServiceReference {
     public interface IShopService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/CreateUser", ReplyAction="http://tempuri.org/IShopService/CreateUserResponse")]
-        client_net.ShopServiceReference.createUserResponse CreateUser(client_net.ShopServiceReference.createUser data);
+        client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 CreateUser(client_net.ShopServiceReference.CreateUserData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/CreateUser", ReplyAction="http://tempuri.org/IShopService/CreateUserResponse")]
-        System.Threading.Tasks.Task<client_net.ShopServiceReference.createUserResponse> CreateUserAsync(client_net.ShopServiceReference.createUser data);
+        System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> CreateUserAsync(client_net.ShopServiceReference.CreateUserData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/LoginUser", ReplyAction="http://tempuri.org/IShopService/LoginUserResponse")]
-        client_net.ShopServiceReference.loginUserResponse LoginUser(client_net.ShopServiceReference.loginUser data);
+        client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 LoginUser(client_net.ShopServiceReference.LoginUserData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/LoginUser", ReplyAction="http://tempuri.org/IShopService/LoginUserResponse")]
-        System.Threading.Tasks.Task<client_net.ShopServiceReference.loginUserResponse> LoginUserAsync(client_net.ShopServiceReference.loginUser data);
+        System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> LoginUserAsync(client_net.ShopServiceReference.LoginUserData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/UserDetails", ReplyAction="http://tempuri.org/IShopService/UserDetailsResponse")]
-        client_net.ShopServiceReference.userDetailsResponse UserDetails(client_net.ShopServiceReference.userDetails data);
+        client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 UserDetails(client_net.ShopServiceReference.UserDetailsData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/UserDetails", ReplyAction="http://tempuri.org/IShopService/UserDetailsResponse")]
-        System.Threading.Tasks.Task<client_net.ShopServiceReference.userDetailsResponse> UserDetailsAsync(client_net.ShopServiceReference.userDetails data);
+        System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> UserDetailsAsync(client_net.ShopServiceReference.UserDetailsData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/PurchaseProduct", ReplyAction="http://tempuri.org/IShopService/PurchaseProductResponse")]
-        client_net.ShopServiceReference.purchaseProductResponse PurchaseProduct(client_net.ShopServiceReference.purchaseProduct data);
+        client_net.ShopServiceReference.ServiceResponseOfPurchaseUEsMBek5 PurchaseProduct(client_net.ShopServiceReference.PurchaseProductData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/PurchaseProduct", ReplyAction="http://tempuri.org/IShopService/PurchaseProductResponse")]
-        System.Threading.Tasks.Task<client_net.ShopServiceReference.purchaseProductResponse> PurchaseProductAsync(client_net.ShopServiceReference.purchaseProduct data);
+        System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfPurchaseUEsMBek5> PurchaseProductAsync(client_net.ShopServiceReference.PurchaseProductData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/ProductList", ReplyAction="http://tempuri.org/IShopService/ProductListResponse")]
-        client_net.ShopServiceReference.Product[] ProductList(client_net.ShopServiceReference.productList data);
+        client_net.ShopServiceReference.ServiceResponseOfArrayOfProductUEsMBek5 ProductList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/ProductList", ReplyAction="http://tempuri.org/IShopService/ProductListResponse")]
-        System.Threading.Tasks.Task<client_net.ShopServiceReference.Product[]> ProductListAsync(client_net.ShopServiceReference.productList data);
+        System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfArrayOfProductUEsMBek5> ProductListAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/HistoryList", ReplyAction="http://tempuri.org/IShopService/HistoryListResponse")]
-        client_net.ShopServiceReference.Product[] HistoryList(client_net.ShopServiceReference.historyList data);
+        client_net.ShopServiceReference.ServiceResponseOfArrayOfPurchaseUEsMBek5 HistoryList(client_net.ShopServiceReference.HistoryListData data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/HistoryList", ReplyAction="http://tempuri.org/IShopService/HistoryListResponse")]
-        System.Threading.Tasks.Task<client_net.ShopServiceReference.Product[]> HistoryListAsync(client_net.ShopServiceReference.historyList data);
+        System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfArrayOfPurchaseUEsMBek5> HistoryListAsync(client_net.ShopServiceReference.HistoryListData data);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1045,51 +1018,51 @@ namespace client_net.ShopServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public client_net.ShopServiceReference.createUserResponse CreateUser(client_net.ShopServiceReference.createUser data) {
+        public client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 CreateUser(client_net.ShopServiceReference.CreateUserData data) {
             return base.Channel.CreateUser(data);
         }
         
-        public System.Threading.Tasks.Task<client_net.ShopServiceReference.createUserResponse> CreateUserAsync(client_net.ShopServiceReference.createUser data) {
+        public System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> CreateUserAsync(client_net.ShopServiceReference.CreateUserData data) {
             return base.Channel.CreateUserAsync(data);
         }
         
-        public client_net.ShopServiceReference.loginUserResponse LoginUser(client_net.ShopServiceReference.loginUser data) {
+        public client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 LoginUser(client_net.ShopServiceReference.LoginUserData data) {
             return base.Channel.LoginUser(data);
         }
         
-        public System.Threading.Tasks.Task<client_net.ShopServiceReference.loginUserResponse> LoginUserAsync(client_net.ShopServiceReference.loginUser data) {
+        public System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> LoginUserAsync(client_net.ShopServiceReference.LoginUserData data) {
             return base.Channel.LoginUserAsync(data);
         }
         
-        public client_net.ShopServiceReference.userDetailsResponse UserDetails(client_net.ShopServiceReference.userDetails data) {
+        public client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 UserDetails(client_net.ShopServiceReference.UserDetailsData data) {
             return base.Channel.UserDetails(data);
         }
         
-        public System.Threading.Tasks.Task<client_net.ShopServiceReference.userDetailsResponse> UserDetailsAsync(client_net.ShopServiceReference.userDetails data) {
+        public System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> UserDetailsAsync(client_net.ShopServiceReference.UserDetailsData data) {
             return base.Channel.UserDetailsAsync(data);
         }
         
-        public client_net.ShopServiceReference.purchaseProductResponse PurchaseProduct(client_net.ShopServiceReference.purchaseProduct data) {
+        public client_net.ShopServiceReference.ServiceResponseOfPurchaseUEsMBek5 PurchaseProduct(client_net.ShopServiceReference.PurchaseProductData data) {
             return base.Channel.PurchaseProduct(data);
         }
         
-        public System.Threading.Tasks.Task<client_net.ShopServiceReference.purchaseProductResponse> PurchaseProductAsync(client_net.ShopServiceReference.purchaseProduct data) {
+        public System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfPurchaseUEsMBek5> PurchaseProductAsync(client_net.ShopServiceReference.PurchaseProductData data) {
             return base.Channel.PurchaseProductAsync(data);
         }
         
-        public client_net.ShopServiceReference.Product[] ProductList(client_net.ShopServiceReference.productList data) {
-            return base.Channel.ProductList(data);
+        public client_net.ShopServiceReference.ServiceResponseOfArrayOfProductUEsMBek5 ProductList() {
+            return base.Channel.ProductList();
         }
         
-        public System.Threading.Tasks.Task<client_net.ShopServiceReference.Product[]> ProductListAsync(client_net.ShopServiceReference.productList data) {
-            return base.Channel.ProductListAsync(data);
+        public System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfArrayOfProductUEsMBek5> ProductListAsync() {
+            return base.Channel.ProductListAsync();
         }
         
-        public client_net.ShopServiceReference.Product[] HistoryList(client_net.ShopServiceReference.historyList data) {
+        public client_net.ShopServiceReference.ServiceResponseOfArrayOfPurchaseUEsMBek5 HistoryList(client_net.ShopServiceReference.HistoryListData data) {
             return base.Channel.HistoryList(data);
         }
         
-        public System.Threading.Tasks.Task<client_net.ShopServiceReference.Product[]> HistoryListAsync(client_net.ShopServiceReference.historyList data) {
+        public System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfArrayOfPurchaseUEsMBek5> HistoryListAsync(client_net.ShopServiceReference.HistoryListData data) {
             return base.Channel.HistoryListAsync(data);
         }
     }

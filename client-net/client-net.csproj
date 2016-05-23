@@ -57,7 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models.cs" />
+    <Compile Include="GuiModels.cs" />
     <Compile Include="Service References\ShopServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,19 +106,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.createUserResponse.datasource">
+    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.ServiceResponseOfArrayOfProductUEsMBek5.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.loginUserResponse.datasource">
+    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.ServiceResponseOfArrayOfPurchaseUEsMBek5.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.Product.datasource">
+    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.ServiceResponseOfPurchaseUEsMBek5.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.purchaseProductResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.userDetailsResponse.datasource">
+    <None Include="Service References\ShopServiceReference\client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ShopServiceReference\ShopService.wsdl" />
@@ -129,9 +126,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ShopServiceReference\ShopService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ShopServiceReference\ShopService3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

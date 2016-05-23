@@ -21,22 +21,27 @@ namespace client_net
             try
             {
                 var result =
-                    this.client.CreateUser(new createUser()
+                    this.client.CreateUser(new CreateUserData()
                     {
-                        nameField = this.registerNameField.Text,
-                        usernameField = this.registerUsernameField.Text
+                        Name = this.registerNameField.Text,
+                        Username = this.registerUsernameField.Text
                     });
-                if (result.useridField != "")
-                    MessageBox.Show(
-                        string.Format("Account created:\n\nLogin: {0}\nPassword: {1}", result.usernameField,
-                            result.passwordField), "Account Created!", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (result.Meta.Success)
+                {
+                    string message =
+                        $"Account created:\n\nLogin: {result.Data.username}\nPassword: {result.Data.password}";
+                    MessageBox.Show(message, "Account Created!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.registerOutputBlock.Text = message;
+                }
                 else
-                    MessageBox.Show("Failed to create account, make sure the username doesn't exists!",
+                {
+                    MessageBox.Show($"Failed to create account: {result.Meta.Message}",
                         "Account Created Error!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Error creating account, make sure the username is unique and doesn't exists already!",
+                MessageBox.Show("Error creating account, make sure you have internet connection!",
                        "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -45,32 +50,30 @@ namespace client_net
         {
             try
             {
-                var result = this.client.LoginUser(new loginUser()
+                var result = this.client.LoginUser(new LoginUserData()
                 {
-                    usernameField = this.loginUsernameField.Text,
-                    passwordField = this.loginPasswordField.Password
+                    Username = this.loginUsernameField.Text,
+                    Password = this.loginPasswordField.Password
                 });
 
-                if (result.successField)
-                    LoginSuccess(int.Parse(result.useridField));
+                if (result.Meta.Success)
+                    LoginSuccess(result.Data);
                 else
-                    MessageBox.Show("Login failed, correct credentials?",
+                    MessageBox.Show($"Login failed: {result.Meta.Message}",
                        "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception)
             {
-                MessageBox.Show("Login failed, correct credentials? Connection to the internet?",
+                MessageBox.Show("Login failed! Connection to the internet?",
                        "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            UserDashboard userdashboard = new UserDashboard();
-            userdashboard.Show();
-            this.Close();
         }
 
-        private void LoginSuccess(int UserID)
+        private void LoginSuccess(User user)
         {
-            var result = this.client.UserDetails(new userDetails() {userField = UserID + ""});
+            UserDashboard userdashboard = new UserDashboard(user);
+            userdashboard.Show();
+            this.Close();
         }
     }
 }

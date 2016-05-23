@@ -1,73 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="createUser">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/server" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/server" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CreateUserData">
     <xs:sequence>
-      <xs:element name="nameField" nillable="true" type="xs:string" />
-      <xs:element name="usernameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="createUser" nillable="true" type="tns:createUser" />
-  <xs:complexType name="createUserResponse">
+  <xs:element name="CreateUserData" nillable="true" type="tns:CreateUserData" />
+  <xs:complexType name="ServiceResponseOfUserUEsMBek5">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/server" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="User" Namespace="http://schemas.datacontract.org/2004/07/server" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:sequence>
-      <xs:element name="nameField" nillable="true" type="xs:string" />
-      <xs:element name="passwordField" nillable="true" type="xs:string" />
-      <xs:element name="useridField" nillable="true" type="xs:string" />
-      <xs:element name="usernameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="Meta" nillable="true" type="tns:MetaData" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="createUserResponse" nillable="true" type="tns:createUserResponse" />
-  <xs:complexType name="loginUser">
+  <xs:element name="ServiceResponseOfUserUEsMBek5" nillable="true" type="tns:ServiceResponseOfUserUEsMBek5" />
+  <xs:complexType name="User">
     <xs:sequence>
-      <xs:element name="passwordField" nillable="true" type="xs:string" />
-      <xs:element name="usernameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Purchase" nillable="true" type="tns:ArrayOfPurchase" />
+      <xs:element minOccurs="0" name="balance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userid" type="xs:int" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="loginUser" nillable="true" type="tns:loginUser" />
-  <xs:complexType name="loginUserResponse">
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfPurchase">
     <xs:sequence>
-      <xs:element name="balanceField" type="xs:float" />
-      <xs:element name="successField" type="xs:boolean" />
-      <xs:element name="useridField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Purchase" nillable="true" type="tns:Purchase" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="loginUserResponse" nillable="true" type="tns:loginUserResponse" />
-  <xs:complexType name="userDetails">
+  <xs:element name="ArrayOfPurchase" nillable="true" type="tns:ArrayOfPurchase" />
+  <xs:complexType name="Purchase">
     <xs:sequence>
-      <xs:element name="userField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="productid" type="xs:int" />
+      <xs:element minOccurs="0" name="purchaseid" type="xs:int" />
+      <xs:element minOccurs="0" name="userid" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="userDetails" nillable="true" type="tns:userDetails" />
-  <xs:complexType name="userDetailsResponse">
+  <xs:element name="Purchase" nillable="true" type="tns:Purchase" />
+  <xs:complexType name="Product">
     <xs:sequence>
-      <xs:element name="balanceField" type="xs:float" />
-      <xs:element name="nameField" nillable="true" type="xs:string" />
-      <xs:element name="useridField" nillable="true" type="xs:string" />
-      <xs:element name="usernameField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Purchase" nillable="true" type="tns:ArrayOfPurchase" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="productid" type="xs:int" />
+      <xs:element minOccurs="0" name="quantity" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="userDetailsResponse" nillable="true" type="tns:userDetailsResponse" />
-  <xs:complexType name="purchaseProduct">
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="MetaData">
     <xs:sequence>
-      <xs:element name="productField" nillable="true" type="xs:string" />
-      <xs:element name="userField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="purchaseProduct" nillable="true" type="tns:purchaseProduct" />
-  <xs:complexType name="purchaseProductResponse">
+  <xs:element name="MetaData" nillable="true" type="tns:MetaData" />
+  <xs:complexType name="LoginUserData">
     <xs:sequence>
-      <xs:element name="balanceField" type="xs:float" />
-      <xs:element name="successField" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="purchaseProductResponse" nillable="true" type="tns:purchaseProductResponse" />
-  <xs:complexType name="productList">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="productList" nillable="true" type="tns:productList" />
-  <xs:complexType name="historyList">
+  <xs:element name="LoginUserData" nillable="true" type="tns:LoginUserData" />
+  <xs:complexType name="UserDetailsData">
     <xs:sequence>
-      <xs:element name="userField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="historyList" nillable="true" type="tns:historyList" />
+  <xs:element name="UserDetailsData" nillable="true" type="tns:UserDetailsData" />
+  <xs:complexType name="PurchaseProductData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PurchaseProductData" nillable="true" type="tns:PurchaseProductData" />
+  <xs:complexType name="ServiceResponseOfPurchaseUEsMBek5">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/server" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Purchase" Namespace="http://schemas.datacontract.org/2004/07/server" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="tns:Purchase" />
+      <xs:element minOccurs="0" name="Meta" nillable="true" type="tns:MetaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfPurchaseUEsMBek5" nillable="true" type="tns:ServiceResponseOfPurchaseUEsMBek5" />
+  <xs:complexType name="ServiceResponseOfArrayOfProductUEsMBek5">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/server" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfProduct" Namespace="http://schemas.datacontract.org/2004/07/server" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfProduct" />
+      <xs:element minOccurs="0" name="Meta" nillable="true" type="tns:MetaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfArrayOfProductUEsMBek5" nillable="true" type="tns:ServiceResponseOfArrayOfProductUEsMBek5" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="HistoryListData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryListData" nillable="true" type="tns:HistoryListData" />
+  <xs:complexType name="ServiceResponseOfArrayOfPurchaseUEsMBek5">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/server" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPurchase" Namespace="http://schemas.datacontract.org/2004/07/server" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="tns:ArrayOfPurchase" />
+      <xs:element minOccurs="0" name="Meta" nillable="true" type="tns:MetaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfArrayOfPurchaseUEsMBek5" nillable="true" type="tns:ServiceResponseOfArrayOfPurchaseUEsMBek5" />
 </xs:schema>

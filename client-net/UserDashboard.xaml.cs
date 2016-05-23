@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using client_net.ShopServiceReference;
 
 namespace client_net
 {
@@ -19,15 +9,34 @@ namespace client_net
     /// </summary>
     public partial class UserDashboard : Window
     {
-        public UserDashboard(LoginUser user)
+        private ShopServiceClient client = new ShopServiceClient();
+
+        public UserDashboard()
         {
             InitializeComponent();
-            this.user = user;
-            setBalance();
-            getShopItems();
-            getInventory();
+            RefreshContents();
         }
 
+        private void RefreshContents()
+        {
+            // Reset and clear lists
+            listBox.Items.Clear();
+            listBox2.Items.Clear();
+
+            // Clear text fields
+            label2.Content = "Balance: € ?";
+
+
+            // Refresh from server
+            this.LoadUser();
+
+        }
+
+        private void LoadUser()
+        {
+            
+        }
+        /*
         private void getInventory()
         {
             string urlpart = url + "inventory/" + user.data[0].id;
@@ -43,13 +52,9 @@ namespace client_net
                 }
             }
         }
-
+        
         private void getShopItems()
         {
-            string urlpart = url + "products";
-            string getProducts = wc.DownloadString(urlpart);
-            JavaScriptSerializer ser = new JavaScriptSerializer();
-            getProducts products = ser.Deserialize<getProducts>(getProducts);
 
 
             foreach (Product p in products.data)
@@ -74,9 +79,10 @@ namespace client_net
             getInventory();
 
         }
-
+        */
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            /*
             Product selectedProduct = (Product)listBox2.SelectedItem;
             if (selectedProduct == null)
             {
@@ -110,13 +116,13 @@ namespace client_net
                 MessageBox.Show(" " + purchased.message, "Thank You!", MessageBoxButton.OK, MessageBoxImage.Information);
                 refreshView();
             }
-
+            */
 
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            refreshView();
+            // refreshView();
         }
     }
 }

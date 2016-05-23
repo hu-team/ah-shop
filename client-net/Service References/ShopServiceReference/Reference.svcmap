@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="21b93ce1-7d15-4abd-8608-643f5d9c0e89" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ahshop-server.azurewebsites.net/ShopService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ShopService.xsd" MetadataType="Schema" ID="195bee57-a74b-4caa-b649-8e4492bf025d" SourceId="1" SourceUrl="http://ahshop-server.azurewebsites.net/ShopService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ShopService1.xsd" MetadataType="Schema" ID="a0020d28-327d-45b9-89c2-f8ffe863afa7" SourceId="1" SourceUrl="http://ahshop-server.azurewebsites.net/ShopService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ShopService2.xsd" MetadataType="Schema" ID="08dbc167-9d16-417e-b4cc-725e49b5d273" SourceId="1" SourceUrl="http://ahshop-server.azurewebsites.net/ShopService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ShopService.wsdl" MetadataType="Wsdl" ID="232547b9-a026-41ae-8357-14e7d136786f" SourceId="1" SourceUrl="http://ahshop-server.azurewebsites.net/ShopService.svc?wsdl" />
+    <MetadataFile FileName="ShopService3.xsd" MetadataType="Schema" ID="7ac66b59-3b50-4f88-b513-35735baef812" SourceId="1" SourceUrl="http://ahshop-server.azurewebsites.net/ShopService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

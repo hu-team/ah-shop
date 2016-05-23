@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using client_net.ShopServiceReference;
 
 namespace client_net
 {
@@ -20,31 +9,68 @@ namespace client_net
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ShopServiceClient client = new ShopServiceClient();
+
         public MainWindow()
         {
             InitializeComponent();
         }
-        
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            string username = textBox1.Text;
-            string firstname = textBox2.Text;
-            string lastname = textBox3.Text;
 
-            MessageBox.Show(" " + "", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-            MessageBox.Show(" " + "", "Account Created!", MessageBoxButton.OK, MessageBoxImage.Information);
+        private void registerButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var result =
+                    this.client.CreateUser(new createUser()
+                    {
+                        nameField = this.registerNameField.Text,
+                        usernameField = this.registerUsernameField.Text
+                    });
+                if (result.useridField != "")
+                    MessageBox.Show(
+                        string.Format("Account created:\n\nLogin: {0}\nPassword: {1}", result.usernameField,
+                            result.passwordField), "Account Created!", MessageBoxButton.OK, MessageBoxImage.Information);
+                else
+                    MessageBox.Show("Failed to create account, make sure the username doesn't exists!",
+                        "Account Created Error!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error creating account, make sure the username is unique and doesn't exists already!",
+                       "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            string username = textBox.Text;
-            string password = passwordBox.Password.ToString();
+            try
+            {
+                var result = this.client.LoginUser(new loginUser()
+                {
+                    usernameField = this.loginUsernameField.Text,
+                    passwordField = this.loginPasswordField.Password
+                });
 
-            MessageBox.Show(" " + "", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (result.successField)
+                    LoginSuccess(int.Parse(result.useridField));
+                else
+                    MessageBox.Show("Login failed, correct credentials?",
+                       "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Login failed, correct credentials? Connection to the internet?",
+                       "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
-            UserDashboard userdashboard = new UserDashboard(loginuser);
+            UserDashboard userdashboard = new UserDashboard();
             userdashboard.Show();
             this.Close();
+        }
+
+        private void LoginSuccess(int UserID)
+        {
+            var result = this.client.UserDetails(new userDetails() {userField = UserID + ""});
         }
     }
 }

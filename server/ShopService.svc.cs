@@ -99,7 +99,8 @@ namespace server
         {
             var result = new List<Product>();
             using (var context = new ahshopEntities())
-                result.AddRange(context.Product.Select(prd => Copy.CloneProduct(prd)));
+                foreach (var product in context.Product)
+                    result.Add(Copy.CloneProduct(product));
             return ServiceResponse<Product[]>.Success(result.ToArray());
         }
 

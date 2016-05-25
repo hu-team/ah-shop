@@ -2,6 +2,8 @@
 package org.datacontract.schemas._2004._07.server;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -197,4 +199,10 @@ public class Purchase {
         this.userid = value;
     }
 
+
+    @Override
+    public String toString() {
+        return this.getProduct().getValue().getName().getValue() + ", "
+                + NumberFormat.getCurrencyInstance(Locale.ITALY).format(this.getPrice());
+    }
 }

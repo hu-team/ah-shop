@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://arvici.nl/ahshop/wsinterface" elementFormDefault="qualified" targetNamespace="http://arvici.nl/ahshop/wsinterface" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://ahshop-server.azurewebsites.net/ShopService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/server" />
   <xs:element name="CreateUser">
     <xs:complexType>

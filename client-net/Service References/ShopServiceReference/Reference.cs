@@ -951,43 +951,43 @@ namespace client_net.ShopServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ShopServiceReference.IShopService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://arvici.nl/ahshop/wsinterface", ConfigurationName="ShopServiceReference.IShopService")]
     public interface IShopService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/CreateUser", ReplyAction="http://tempuri.org/IShopService/CreateUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/CreateUser", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/CreateUserResponse")]
         client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 CreateUser(client_net.ShopServiceReference.CreateUserData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/CreateUser", ReplyAction="http://tempuri.org/IShopService/CreateUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/CreateUser", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/CreateUserResponse")]
         System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> CreateUserAsync(client_net.ShopServiceReference.CreateUserData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/LoginUser", ReplyAction="http://tempuri.org/IShopService/LoginUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/LoginUser", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/LoginUserResponse")]
         client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 LoginUser(client_net.ShopServiceReference.LoginUserData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/LoginUser", ReplyAction="http://tempuri.org/IShopService/LoginUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/LoginUser", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/LoginUserResponse")]
         System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> LoginUserAsync(client_net.ShopServiceReference.LoginUserData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/UserDetails", ReplyAction="http://tempuri.org/IShopService/UserDetailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/UserDetails", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/UserDetailsResponse")]
         client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5 UserDetails(client_net.ShopServiceReference.UserDetailsData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/UserDetails", ReplyAction="http://tempuri.org/IShopService/UserDetailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/UserDetails", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/UserDetailsResponse")]
         System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfUserUEsMBek5> UserDetailsAsync(client_net.ShopServiceReference.UserDetailsData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/PurchaseProduct", ReplyAction="http://tempuri.org/IShopService/PurchaseProductResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/PurchaseProduct", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/PurchaseProductResponse")]
         client_net.ShopServiceReference.ServiceResponseOfPurchaseUEsMBek5 PurchaseProduct(client_net.ShopServiceReference.PurchaseProductData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/PurchaseProduct", ReplyAction="http://tempuri.org/IShopService/PurchaseProductResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/PurchaseProduct", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/PurchaseProductResponse")]
         System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfPurchaseUEsMBek5> PurchaseProductAsync(client_net.ShopServiceReference.PurchaseProductData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/ProductList", ReplyAction="http://tempuri.org/IShopService/ProductListResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/ProductList", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/ProductListResponse")]
         client_net.ShopServiceReference.ServiceResponseOfArrayOfProductUEsMBek5 ProductList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/ProductList", ReplyAction="http://tempuri.org/IShopService/ProductListResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/ProductList", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/ProductListResponse")]
         System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfArrayOfProductUEsMBek5> ProductListAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/HistoryList", ReplyAction="http://tempuri.org/IShopService/HistoryListResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/HistoryList", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/HistoryListResponse")]
         client_net.ShopServiceReference.ServiceResponseOfArrayOfPurchaseUEsMBek5 HistoryList(client_net.ShopServiceReference.HistoryListData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShopService/HistoryList", ReplyAction="http://tempuri.org/IShopService/HistoryListResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://arvici.nl/ahshop/wsinterface/IShopService/HistoryList", ReplyAction="http://arvici.nl/ahshop/wsinterface/IShopService/HistoryListResponse")]
         System.Threading.Tasks.Task<client_net.ShopServiceReference.ServiceResponseOfArrayOfPurchaseUEsMBek5> HistoryListAsync(client_net.ShopServiceReference.HistoryListData data);
     }
     

@@ -1,5 +1,6 @@
 package nl.arvici.client.controller;
 
+import com.microsoft.schemas._2003._10.serialization.ObjectFactory;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,11 +10,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import nl.arvici.client.ServiceProvider;
+import org.datacontract.schemas._2004._07.server.CreateUserData;
+import org.datacontract.schemas._2004._07.server.LoginUserData;
+import org.datacontract.schemas._2004._07.server.ServiceResponseOfUserUEsMBek5;
 
+import javax.xml.bind.JAXBElement;
 import java.util.Optional;
 
 public class MainWindow extends Application {
     private static MainWindow instance;
+    private static ObjectFactory factory = new ObjectFactory();
 
     @FXML private TextField loginUsername;
     @FXML private PasswordField loginPassword;
@@ -21,8 +27,7 @@ public class MainWindow extends Application {
     @FXML private Button registerButton;
     @FXML private TextField registerPassword;
     @FXML private TextField registerUsername;
-    @FXML private TextField registerFirstname;
-    @FXML private TextField registerLastname;
+    @FXML private TextField registerName;
     @FXML private TextArea registerOutput;
 
     private Parent content;
@@ -43,11 +48,6 @@ public class MainWindow extends Application {
         } catch (Exception e) {
             e.printStackTrace();
             return;
-        }
-        try {
-            //ServiceProvider.getInstance().getWebserviceService().getClient().get("test", Product.class);
-        }catch (Exception e) {
-            e.printStackTrace();
         }
 
         primaryStage.setResizable(false);
@@ -71,16 +71,13 @@ public class MainWindow extends Application {
             alert.setContentText("Are you sure to exit the application?");
 
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.CANCEL) {
+            if (result.isPresent() && result.get() == ButtonType.CANCEL) {
                 event.consume();
                 return;
             }
 
             // Close all threads.
             ServiceProvider.getInstance().willExitApplication();
-
-            // Close Unirest threads.
-            // try {Unirest.shutdown();}catch(Exception e) {e.printStackTrace();}
 
             // Force exit for all threads.
             System.exit(0);
@@ -107,36 +104,36 @@ public class MainWindow extends Application {
             alert.showAndWait();
             return;
         }
-        /*
-        Object user = ServiceProvider.getInstance().getWebserviceService().getUserProvider().loginUser(
-                this.loginUsername.getText(), this.loginPassword.getText()
-        );
 
-        if (user instanceof String) {
+        LoginUserData request = new LoginUserData();
+        request.setUsername(ServiceProvider.getDataFactory().createLoginUserDataUsername(this.loginUsername.getText()));
+        request.setPassword(ServiceProvider.getDataFactory().createLoginUserDataPassword(this.loginPassword.getText()));
+
+        ServiceResponseOfUserUEsMBek5 response = ServiceProvider.getInstance().getShopProxy().loginUser(request);
+
+        if (! response.getMeta().getValue().isSuccess()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Failed");
             alert.setHeaderText("Login failed, error message:");
-            alert.setContentText((String)user);
+            alert.setContentText(response.getMeta().getValue().getMessage().getValue());
             alert.showAndWait();
             return;
         }
-        if (user instanceof User) {
-            // Login Successfully
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Login Done");
-            alert.setHeaderText("Login successfully");
-            alert.setContentText("Welcome back " + ((User) user).getFirstname());
-            alert.showAndWait();
 
-            ServiceProvider.getInstance().getWebserviceService().setAuthenticatedUser((User)user);
-            ServiceProvider.getInstance().getControllerService().startProductStage();
-        }*/
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Login Done");
+        alert.setHeaderText("Login successfully");
+        alert.setContentText("Welcome back " + response.getData().getValue().getName().getValue());
+        alert.showAndWait();
+
+        ServiceProvider.getInstance().setActiveUser(response.getData().getValue());
+        ServiceProvider.getInstance().getControllerService().startProductStage();
     }
 
     @FXML private void onRegister(ActionEvent actionEvent) {
-        /*
-        if (this.registerUsername.getText().isEmpty() || this.registerFirstname.getText().isEmpty()
-                || this.registerLastname.getText().isEmpty()) {
+        this.registerOutput.setText("");
+
+        if (this.registerUsername.getText().isEmpty() || this.registerName.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Empty fields");
             alert.setHeaderText(null);
@@ -145,12 +142,21 @@ public class MainWindow extends Application {
             return;
         }
 
-        User user = ServiceProvider.getInstance().getWebserviceService().getUserProvider().registerUser(
-                this.registerUsername.getText(), this.registerFirstname.getText(), this.registerLastname.getText());
+        CreateUserData request = new CreateUserData();
+        request.setName(ServiceProvider.getDataFactory().createCreateUserDataName(this.registerName.getText()));
+        request.setUsername(ServiceProvider.getDataFactory().createCreateUserDataUsername(this.registerUsername.getText()));
 
-        if (user != null) {
-            this.registerOutput.setText("Register completed, your password: " + user.getPassword());
+        ServiceResponseOfUserUEsMBek5 response = ServiceProvider.getInstance().getShopProxy().createUser(request);
+
+        if (! response.getMeta().getValue().isSuccess()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Account Register Failed");
+            alert.setHeaderText("Register failed, error message:");
+            alert.setContentText(response.getMeta().getValue().getMessage().getValue());
+            alert.showAndWait();
+            return;
         }
-        */
+
+        this.registerOutput.setText("Register completed\nPassword: " + response.getData().getValue().getPassword().getValue());
     }
 }

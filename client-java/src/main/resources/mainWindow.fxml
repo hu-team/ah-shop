@@ -26,16 +26,14 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                         <Button fx:id="registerButton" layoutX="151.0" layoutY="177.0" mnemonicParsing="false" onAction="#onRegister" text="Register" />
+                         <Button fx:id="registerButton" layoutX="151.0" layoutY="136.0" mnemonicParsing="false" onAction="#onRegister" text="Register" />
                          <TextField fx:id="registerUsername" layoutX="151.0" layoutY="10.0" />
                          <Label layoutX="15.0" layoutY="50.0" text="Password" />
                          <Label layoutX="15.0" layoutY="14.0" text="Username" />
                          <TextField fx:id="registerPassword" disable="true" editable="false" layoutX="151.0" layoutY="46.0" text="Generated password" />
-                         <Label layoutX="15.0" layoutY="98.0" text="Firstname" />
-                         <TextField fx:id="registerFirstname" layoutX="151.0" layoutY="94.0" />
-                         <Label layoutX="16.0" layoutY="140.0" text="Lastname" />
-                         <TextField fx:id="registerLastname" layoutX="151.0" layoutY="136.0" />
-                         <TextArea fx:id="registerOutput" layoutX="315.0" editable="false" layoutY="10.0" prefHeight="301.0" prefWidth="276.0" />
+                         <Label layoutX="15.0" layoutY="98.0" text="Name" />
+                         <TextField fx:id="registerName" layoutX="151.0" layoutY="94.0" />
+                         <TextArea fx:id="registerOutput" editable="false" layoutX="315.0" layoutY="10.0" prefHeight="301.0" prefWidth="276.0" />
                      </children>
                   </AnchorPane>
             </content>

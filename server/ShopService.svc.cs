@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.ServiceModel;
 
 namespace server
 {
+    [ServiceBehavior(Namespace = "http://arvici.nl/ahshop/wsinterface")]
     public class ShopService : IShopService
     {
 

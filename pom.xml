@@ -44,8 +44,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.1</version>
 					<configuration>
-						<source>1.7</source>
-						<target>1.7</target>
+						<source>1.8</source>
+						<target>1.8</target>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -62,15 +62,15 @@
 						</execution>
 					</executions>
 					<configuration>
-						<wsdlLocation>
-							ahshop-server.azurewebsites.net/ShopService.svc?wsdl
-						</wsdlLocation>
+						<wsdlUrls>
+							<url>http://ahshop-server.azurewebsites.net/ShopService.svc?singleWsdl</url>
+						</wsdlUrls>
 						<!-- Keep generated files -->
 						<keep>true</keep>
 						<!-- Package name -->
-						<packageName>nl.arvici.ahshop.wsinterface</packageName>
+						<!-- <packageName>nl.arvici.ahshop.wsinterface</packageName> -->
 						<!-- generated source files destination -->
-						<!-- <sourceDestDir>target/generated-code/src</sourceDestDir> -->
+						<sourceDestDir>target/generated-code/src</sourceDestDir>
 					</configuration>
 				</plugin>
 				<plugin>

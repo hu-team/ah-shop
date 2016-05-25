@@ -1,11 +1,12 @@
 ﻿using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
+using System.Web.Services;
 
 namespace server
 {
-    [ServiceContract]
-    [System.Web.Services.WebServiceBindingAttribute(Name = "WS-Binding", Namespace = "http://schemas.arvici.nl/messages/message")]
+    [ServiceContract(Namespace = "http://arvici.nl/ahshop/wsinterface")]
+    [WebServiceBinding(Name = "WS-Binding", Namespace = "http://arvici.nl/ahshop/wsinterface/binding")]
     public interface IShopService
     {
         [OperationContract]

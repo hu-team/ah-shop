@@ -62,12 +62,9 @@
 						</execution>
 					</executions>
 					<configuration>
-						<!--wsdls file directory -->
-						<wsdlDirectory>src/main/webapp/wsdl/</wsdlDirectory>
-						<!-- which wsdl file -->
-						<wsdlFiles>
-							<wsdlFile>webservice.wsdl</wsdlFile>
-						</wsdlFiles>
+						<wsdlLocation>
+							ahshop-server.azurewebsites.net/ShopService.svc?wsdl
+						</wsdlLocation>
 						<!-- Keep generated files -->
 						<keep>true</keep>
 						<!-- Package name -->

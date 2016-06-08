@@ -59,6 +59,8 @@ public class ProductOverview implements Initializable {
             alert.setHeaderText("Purchase failed! Message:");
             alert.setContentText(response.getMeta().getValue().getMessage().getValue());
             alert.showAndWait();
+            this.reloadData();
+            this.reloadViews();
             return;
         }
 
